@@ -1,7 +1,8 @@
 import React from "react";
 import { ImFacebook2, ImWhatsapp, ImTwitter, ImTwitch } from "react-icons/im";
-import { FcGoogle } from "react-icons/fc";
+import { AiOutlineGoogle } from "react-icons/ai";
 import { SiDiscord } from "react-icons/si";
+import { FaFacebookF} from "react-icons/fa";
 import Carousel from "./Carousel";
 import brand1 from "../../assets/Brand1.png";
 import brand2 from "../../assets/Brand2.png";
@@ -12,11 +13,11 @@ const RightSideNav = () => {
     <div>
       <div className="mb-6">
         <button className="btn bg-gray-400 mx-3 text-white p-2 w-56 rounded hover:bg-gray-500 duration-300 flex items-center">
-          <FcGoogle /> &nbsp; Login with Google
+          <AiOutlineGoogle size={30}/> &nbsp; Login with Google
         </button>{" "}
         <br />
         <button className="btn bg-blue-500 mx-3 text-white p-2 w-56 rounded hover:bg-blue-600 duration-300 flex items-center">
-          <ImFacebook2 /> &nbsp; Login with Facebook
+          <FaFacebookF size={ 27} /> &nbsp; Login with Facebook
         </button>
       </div>
       <div>

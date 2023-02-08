@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import LeftsideNav from '../Sheared/LeftsideNav';
 import {IoIosArrowDown ,IoIosArrowUp} from 'react-icons/io';
 import { Link } from "react-router-dom";
 const Header = () => {
@@ -13,7 +12,7 @@ const Header = () => {
     }, [])
   console.log(open);
   return (
-    <div className="drop-shadow-md">
+    <div className="drop-shadow-md ">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="relative md:hidden">
