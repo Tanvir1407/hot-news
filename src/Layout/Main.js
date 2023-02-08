@@ -7,16 +7,16 @@ import RightSideNav from "../Pages/Sheared/RightSideNav";
 
 const Main = () => {
   return (
-    <div>
+    <div className="bg-gray-200 ">
       <Header></Header>
-      <div className="grid grid-cols-12 mx-10">
-        <div className=" col-span-2">
+      <div className="grid mt-8 grid-cols-12 mx-10 ">
+        <div className=" col-span-12 lg:col-span-2 md:col-span-2">
           <LeftsideNav></LeftsideNav>
         </div>
-        <div className="bg-gray-300 rounded col-span-7">
+        <div className="rounded col-span-12 lg:col-span-7  md:col-span-7">
           <Outlet></Outlet>
         </div>
-        <div className=" col-span-3">
+        <div className=" col-span-12  lg:col-span-3 md:col-span-3">
           <RightSideNav></RightSideNav>
         </div>
       </div>

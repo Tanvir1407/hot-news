@@ -11,7 +11,7 @@ const LeftsideNav = () => {
     }, [])
     console.log(categories);
     return (
-        <div className='mx-2'>
+        <div className='mx-2 hidden md:flex flex-col md:'>
             <h1 className='text-2xl font-semibold border-b-2 pb-3'>All Category</h1>
             <div>
             {
