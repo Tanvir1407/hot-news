@@ -4,7 +4,7 @@ import { AiFillStar} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const NewsSummeryCard = ({ news }) => {
-    const { title, author, image_url, rating, total_view, details } = news;
+    const { title, author, image_url, rating, total_view, details , _id} = news;
     const truncateString = (str, num) => {
         if (str.length > num) {
             return str.slice(0, num) + "...";
@@ -33,7 +33,7 @@ const NewsSummeryCard = ({ news }) => {
                 <img src={image_url} alt="news__cover__photo" />
             </div>
             <div className='p-4'> {/* demoarticle section section */}
-                <p className='inline text-gray-500 text-xl font-serif'>{ truncateString(details, 300)}</p> <Link to="/" className='text-blue-500 underline font-semibold'>Learn More</Link>
+                <p className='inline text-gray-500 text-xl font-serif'>{truncateString(details, 300)}</p> <Link to={`/news/${_id}`} className='text-blue-500 underline font-semibold'>Learn More</Link>
             </div>
             <div className='p-4 flex justify-between'> {/*footer section */}
                 <div className='flex items-center '>
