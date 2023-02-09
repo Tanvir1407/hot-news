@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ImFacebook2, ImWhatsapp, ImTwitter, ImTwitch } from "react-icons/im";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { SiDiscord } from "react-icons/si";
@@ -6,13 +6,28 @@ import { FaFacebookF} from "react-icons/fa";
 import Carousel from "./Carousel";
 import brand1 from "../../assets/Brand1.png";
 import brand2 from "../../assets/Brand2.png";
+import { AuthContext } from "../../Context/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+
+  const provider = new GoogleAuthProvider();
 
 const RightSideNav = () => {
+  const { LoginFunction } = useContext(AuthContext);
+
+  const handleGoogleLogin = () => {
+    LoginFunction(provider)
+      .then(result => {
+      console.log(result)
+      })
+      .catch(err => {
+      console.log(err)
+    })
+  }
   const slides = [brand1, brand2];
   return (
     <div>
       <div className="mb-6">
-        <button className="btn bg-gray-400 mx-3 text-white p-2 w-56 rounded hover:bg-gray-500 duration-300 flex items-center">
+        <button onClick={handleGoogleLogin} className="btn bg-gray-400 mx-3 text-white p-2 w-56 rounded hover:bg-gray-500 duration-300 flex items-center">
           <AiOutlineGoogle size={30}/> &nbsp; Login with Google
         </button>{" "}
         <br />

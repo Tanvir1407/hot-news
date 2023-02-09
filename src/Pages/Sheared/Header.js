@@ -10,9 +10,8 @@ const Header = () => {
             .then(data => setCategories(data))
         
     }, [])
-  console.log(open);
   return (
-    <div className="drop-shadow-md ">
+    <div className="drop-shadow-md sticky">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="relative md:hidden">

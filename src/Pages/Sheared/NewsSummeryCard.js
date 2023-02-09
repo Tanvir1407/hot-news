@@ -1,10 +1,11 @@
 import React from 'react';
-import { FaBookmark ,FaShareAlt,FaRegEye} from 'react-icons/fa';
+import { FaBookmark ,FaShareAlt,FaRegEye,FaRegBookmark} from 'react-icons/fa';
 import { AiFillStar} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const NewsSummeryCard = ({ news }) => {
-    const { title, author, image_url, rating, total_view, details , _id} = news;
+    const { title, author, image_url, rating, total_view, details, _id } = news;
+    console.log(news)
     const truncateString = (str, num) => {
         if (str.length > num) {
             return str.slice(0, num) + "...";
@@ -12,7 +13,7 @@ const NewsSummeryCard = ({ news }) => {
         else {
             return str;
         }
-    }
+    } 
     return (
         <div className='bg-gray-200 rounded-lg mb-10'>
             <div className='flex justify-between p-4 '> {/*header section */}
@@ -24,7 +25,7 @@ const NewsSummeryCard = ({ news }) => {
                     </div>
                 </div>
                 <div className='flex item-center'>
-                    <FaBookmark className='m-1'></FaBookmark>
+                    <FaRegBookmark className='m-1'></FaRegBookmark>
                     <FaShareAlt className='m-1'></FaShareAlt>
                 </div>
             </div>
@@ -32,8 +33,11 @@ const NewsSummeryCard = ({ news }) => {
                 <h1 className='text-center text-2xl font-semibold text-gray-700 mb-2'>{title}</h1>
                 <img src={image_url} alt="news__cover__photo" />
             </div>
-            <div className='p-4'> {/* demoarticle section section */}
-                <p className='inline text-gray-500 text-xl font-serif'>{truncateString(details, 300)}</p> <Link to={`/news/${_id}`} className='text-blue-500 underline font-semibold'>Learn More</Link>
+            <div className='p-4 hidden md:block'> {/* demoarticle section section large divice*/}
+                <p className='inline text-gray-500 text-xl font-serif '>{truncateString(details, 300)}</p> <Link to={`/news/${_id}`} className='text-blue-500 underline font-semibold'>Learn More</Link>
+            </div>
+            <div className='p-4 md:hidden'> {/* demoarticle section section mobile device  */}
+                <p className='inline text-gray-500 text-xl font-serif '>{truncateString(details, 100)}</p> <Link to={`/news/${_id}`} className='text-blue-500 underline font-semibold'>Learn More</Link>
             </div>
             <div className='p-4 flex justify-between'> {/*footer section */}
                 <div className='flex items-center '>
