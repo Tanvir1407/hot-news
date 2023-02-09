@@ -5,7 +5,7 @@ const Home = () => {
     const news = useLoaderData();
     return (
         <div>
-            {news.map(singleNews => <NewsSummeryCard news={singleNews}></NewsSummeryCard>)}
+            {news.map(singleNews => <NewsSummeryCard key={singleNews._id} news={singleNews}></NewsSummeryCard>)}
         </div>
     );
 };

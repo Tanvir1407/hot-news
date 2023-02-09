@@ -14,7 +14,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 const RightSideNav = () => {
   const { LoginFunction } = useContext(AuthContext);
 
-  const handleGoogleLogin = () => {
+  const handleGoogleLogin = () => { // login function 
     LoginFunction(provider)
       .then(result => {
       console.log(result)

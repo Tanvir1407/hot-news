@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaBookmark ,FaShareAlt,FaRegEye,FaRegBookmark} from 'react-icons/fa';
 import { AiFillStar} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 const NewsSummeryCard = ({ news }) => {
+    const [bookmark, setBookmark] = useState(false);
     const { title, author, image_url, rating, total_view, details, _id } = news;
-    console.log(news)
     const truncateString = (str, num) => {
         if (str.length > num) {
             return str.slice(0, num) + "...";
@@ -24,8 +24,10 @@ const NewsSummeryCard = ({ news }) => {
                         <p className='text-gray-500'>{author.published_date }</p>
                     </div>
                 </div>
-                <div className='flex item-center'>
-                    <FaRegBookmark className='m-1'></FaRegBookmark>
+                <div className='flex item-center cursor-pointer'>
+                    {
+                        bookmark ?<FaBookmark onClick={()=>setBookmark(!bookmark)} className='m-1'></FaBookmark> : <FaRegBookmark onClick={()=>setBookmark(!bookmark)} className='m-1'></FaRegBookmark>
+                    }
                     <FaShareAlt className='m-1'></FaShareAlt>
                 </div>
             </div>
