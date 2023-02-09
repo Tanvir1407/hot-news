@@ -52,7 +52,7 @@ const Header = () => {
                 <p className="p-1 font-semibold text-gray-700">No User</p>            
                 <FaUserCircle size={30} className="text-gray-600"></FaUserCircle>
                 <div className={`absolute top-16  bg-slate-500 hover:bg-slate-600 duration-200 rounded p-3 text-yellow-50 ${logout && "hidden"}`}>
-                  <button>Log In</button>
+                  <button ><Link to="/login">Log In</Link></button>
                 </div>
             </div>
         </div>
