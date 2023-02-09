@@ -7,8 +7,10 @@ import { AuthContext } from "../../Context/AuthProvider";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  const { user } = useContext(AuthContext);
-      const [categories, setCategories] = useState([]);
+  const { user,signout } = useContext(AuthContext);
+  const [categories, setCategories] = useState([]);
+  const [logout, setLogout] = useState(true);
+
     useEffect(() => {
         fetch('http://localhost:5000/categories')
             .then(res => res.json())
@@ -34,23 +36,25 @@ const Header = () => {
           <a className="btn btn-ghost normal-case text-xl">Hot News</a>
           
         </div>
-        <div className="navbar-end flex">
-          {
-            user ?
-              <div className="flex items-center">
+        <div className="navbar-end flex ">
+             <div onClick={()=>setLogout(!logout)} className={` cursor-pointer ${user ?"flex  items-center" :"hidden"}`}>
                 <p  className="font-bold p-1">{user?.displayName}</p>
                 <div className="avatar online">
                   <div className="w-10 rounded-full">
-                    <img src={user.photoURL} />
+                    <img src={user?.photoURL} />
                   </div>
                 </div>
+                <div className={`absolute top-16  bg-slate-500 hover:bg-slate-600 duration-200 rounded p-3 text-yellow-50 ${logout && "hidden"}`}>
+                  <button onClick={()=> signout()}>Log Out</button>
+                </div>
               </div>
-              :
-              <div className="flex items-center">
+            <div  onClick={()=>setLogout(!logout)} className={`cursor-pointer ${user ?"hidden" : "flex items-center"}`}>
+                <p className="p-1 font-semibold text-gray-700">No User</p>            
                 <FaUserCircle size={30} className="text-gray-600"></FaUserCircle>
-                <p className="p-1 font-semibold text-gray-700">No User</p>
-              </div>
-            }
+                <div className={`absolute top-16  bg-slate-500 hover:bg-slate-600 duration-200 rounded p-3 text-yellow-50 ${logout && "hidden"}`}>
+                  <button>Log In</button>
+                </div>
+            </div>
         </div>
       </div>
     </div>
